@@ -31,10 +31,24 @@ def room_manager_role() -> str:
     - El sistema numera automáticamente habitaciones del mismo tipo (ej: dormitorio, dormitorio 2, dormitorio 3)
     - No se puede eliminar una habitación con dispositivos (debe estar vacía)
     
+    PROCESO PARA ELIMINAR HABITACIONES:
+    - Primero debes consultar qué habitaciones existen usando 'consultar_habitaciones'
+    - Luego verificar qué dispositivos tiene cada habitación usando 'consultar_habitacion'
+    - Eliminar todos los dispositivos de la habitación usando 'eliminar_dispositivo' (del servidor de dispositivos)
+    - Finalmente eliminar la habitación vacía usando 'eliminar_habitacion'
+    - Repetir el proceso para cada habitación que se desee eliminar
+    
+    IMPORTANTE PARA ELIMINAR MÚLTIPLES HABITACIONES:
+    - NO intentes eliminar todas las habitaciones en una sola llamada
+    - Procesa UNA habitación a la vez
+    - Espera la confirmación antes de proceder con la siguiente
+    - Informa al usuario el progreso de cada eliminación
+    
     COMUNICACIÓN:
     - Sé claro y conciso en tus respuestas
     - Informa al usuario sobre límites y restricciones
     - Confirma cada operación realizada
+    - Si hay errores, explica claramente qué salió mal y qué se necesita hacer
     """
 
 # ========== RESOURCES ==========

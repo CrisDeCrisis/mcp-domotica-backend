@@ -225,9 +225,9 @@ def agregar_dispositivo(
         device_type: tipo de dispositivo: 'light', 'thermostat', 'fan', 'oven'
         initial_state: estado inicial (opcional):
             - light: "true" o "false" (por defecto: "false")
-            - thermostat: temperatura 16-32 (por defecto: "21")
-            - fan: velocidad 0-5 (por defecto: "0")
-            - oven: is active (por defecto: inactivo)
+            - thermostat: temperatura 16-32 como string (por defecto: "21")
+            - fan: velocidad 0-5 como string (por defecto: "0")
+            - oven: NO USAR este parámetro, el horno se crea con configuración por defecto
     
     Returns:
         Confirmación con ID generado y estado inicial.
@@ -237,14 +237,21 @@ def agregar_dispositivo(
         - La habitación debe existir
         - El horno solo puede añadirse en la cocina
         - En el baño únicamente pueden añadirse luces
+    
+    Nota: Para configurar un horno después de crearlo, usar la herramienta 'ajustar_horno'
     """
     # Procesar initial_state según tipo
     state = None
-    if initial_state is not None:
+    if initial_state is not None and initial_state != "":
         if device_type == "light":
             state = initial_state.lower() == "true"
         elif device_type in ["thermostat", "fan"]:
-            state = int(initial_state)
+            try:
+                state = int(initial_state)
+            except (ValueError, TypeError):
+                # Si no se puede convertir, usar None para valor por defecto
+                state = None
+        # Para oven, ignorar initial_state y usar None (configuración por defecto)
     
     return storage.add_device(room_name, device_type, state)
 
