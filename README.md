@@ -2,6 +2,10 @@
 
 Sistema de gestión domótica basado en el **Model Context Protocol (MCP)** que permite controlar dispositivos inteligentes en diferentes habitaciones mediante servidores especializados. Implementado como una arquitectura de microservicios MCP para gestión eficiente de espacios residenciales y sus dispositivos asociados.
 
+<a href="https://glama.ai/mcp/servers/@CrisDeCrisis/mcp-domotica-backend">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/@CrisDeCrisis/mcp-domotica-backend/badge" alt="Domotica Backend MCP server" />
+</a>
+
 ## 📋 Descripción General
 
 Este proyecto implementa un sistema domótico completo utilizando el Model Context Protocol (MCP) con dos servidores independientes que operan de forma coordinada:
