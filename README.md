@@ -213,9 +213,10 @@ El archivo JSON mantiene un registro estructurado de:
 
 ---
 
-## 👨‍💻 Autoría
+## 👨‍💻 Desarrolladores
 
-**Desarrollador:** González, Cristian David - [GitHub](https://github.com/CrisDeCrisis)
+- **González, Cristian David** - [GitHub](https://github.com/CrisDeCrisis)
+- **Vega, Tobías Joaquín** - [GitHub](https://github.com/Tobias-Vega)
 
 ---
 
